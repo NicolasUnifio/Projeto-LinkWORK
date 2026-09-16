@@ -1,0 +1,22 @@
+<p>exercicio10 works!</p>
+
+<div>
+  <h2>Login Simulado</h2>
+
+  
+  <label for="usuario">Usuário: </label>
+  <input id="usuario" type="text" [(ngModel)]="usuario"><br><br>
+
+  <label for="senha">Senha: </label>
+  <input id="senha" type="password" [(ngModel)]="senha"><br><br>
+
+  
+  <button 
+    (click)="entrar()" 
+    [disabled]="!usuario.trim() || !senha.trim()">
+    Entrar
+  </button>
+
+  
+  <p *ngIf="mensagemBoasVindas">{{ mensagemBoasVindas }}</p>
+</div>

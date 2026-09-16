@@ -1,0 +1,20 @@
+<p>exercicio11 works!</p>
+
+<div>
+  <h2>Carrinho de Compras</h2>
+
+  <h3>{{ nomeProduto }}</h3>
+  <p>Preço: R$ {{ precoUnitario | number:'1.2-2' }}</p>
+
+  <p>
+    Quantidade: {{ quantidade }} 
+    <button (click)="diminuir()" [disabled]="quantidade <= 1">-</button>
+    <button (click)="aumentar()">+</button>
+  </p>
+
+  <p><strong>Total: R$ {{ (precoUnitario * quantidade) | number:'1.2-2' }}</strong></p>
+
+  <button (click)="adicionarAoCarrinho()">Adicionar ao carrinho</button>
+
+  <p *ngIf="mensagemCarrinho">{{ mensagemCarrinho }}</p>
+</div>

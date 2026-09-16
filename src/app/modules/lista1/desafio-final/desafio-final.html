@@ -1,0 +1,34 @@
+<p>desafio-final works!</p>
+
+
+<div>
+  <h2>Matrícula em Curso</h2>
+
+  <!-- Two-Way Binding [(ngModel)] -->
+  <label for="aluno">Nome do Aluno: </label>
+  <input id="aluno" type="text" [(ngModel)]="nomeAluno"><br><br>
+
+  <!-- Event Binding e Property Binding [disabled] -->
+  <p>
+    Quantidade de disciplinas: {{ quantidadeDisciplinas }}
+    <button (click)="diminuirDisciplinas()" [disabled]="quantidadeDisciplinas <= 1">-</button>
+    <button (click)="aumentarDisciplinas()">+</button>
+  </p>
+
+  <!-- Dados digitados exibidos em tempo real (Interpolation) -->
+  <div>
+    <h3>Resumo da Matrícula (Tempo Real):</h3>
+    <p><strong>Aluno:</strong> {{ nomeAluno || 'Não informado' }}</p>
+    <p><strong>Disciplinas:</strong> {{ quantidadeDisciplinas }}</p>
+  </div><br>
+
+  <!-- Event Binding (click) e Property Binding [disabled] -->
+  <button 
+    (click)="realizarMatricula()" 
+    [disabled]="!nomeAluno.trim()">
+    Realizar Matrícula
+  </button>
+
+  <!-- Mensagem final após confirmação -->
+  <p *ngIf="mensagemConfirmacao">{{ mensagemConfirmacao }}</p>
+</div>
